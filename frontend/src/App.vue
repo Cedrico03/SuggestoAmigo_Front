@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <LoginPage v-if="activePage == 'login'" @signupEvent="setActivePage"/>
-    <SignUpPage v-if="activePage == 'signup'"/>
-    <VerificationPage v-if="activePage == 'verification'"/>
-
+    <img src="./assets/AmigoLogo.png" alt="Logo" width="200" >    
+    <LoginPage v-if="activePage == 'login'" @changePageEvent="setActivePage" style="margin-top: -50px"/> <!-- margin top is voor logo niet te hoog te plaatsen -->
+    <SignUpPage v-if="activePage == 'signup'" style="margin-top: -50px"/>
+    <VerificationPage v-if="activePage == 'verification'" @changePageEvent="setActivePage" style="margin-top: -50px"/>
 
   </div>
 </template>
@@ -23,6 +22,7 @@ export default {
   },
   data() {
     return {
+      // activePage: "login"
       activePage: "verification"
     }
   },
@@ -30,7 +30,6 @@ export default {
 
   },
   methods: {
-    // response != 200 => message printen
     setActivePage(page) {
       this.activePage = page;
     }
@@ -44,11 +43,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+  /* color: #2c3e50; */
+  color: black;
 }
 body {
-  background-color: #707070;
-
+  background-color: #05668D;
 }
+
+/* https://coolors.co/palette/05668d-028090-00a896-02c39a-f0f3bd */
 </style>
+
