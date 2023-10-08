@@ -1,8 +1,6 @@
 <template>
     <div>
         <!-- <h1><u>Suggesto Amigo</u></h1> -->
-        <br>
-        <br>
         <div class="title">
             <h2>VerificationPage</h2>
         </div>

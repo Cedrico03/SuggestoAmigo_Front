@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/AmigoLogo.png" alt="Logo" width="200" >    
+    <img id= "logoImg" src="./assets/AmigoLogo.png" alt="Logo" width="200" @click="setActivePage('signup')">    
     <LoginPage v-if="activePage == 'login'" @changePageEvent="setActivePage" style="margin-top: -50px"/> <!-- margin top is voor logo niet te hoog te plaatsen -->
     <SignUpPage v-if="activePage == 'signup'" style="margin-top: -50px"/>
     <VerificationPage v-if="activePage == 'verification'" @changePageEvent="setActivePage" style="margin-top: -50px"/>
@@ -49,6 +49,9 @@ export default {
 }
 body {
   background-color: #05668D;
+}
+#logoImg{
+  margin: 50px;
 }
 
 /* https://coolors.co/palette/05668d-028090-00a896-02c39a-f0f3bd */

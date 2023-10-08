@@ -1,13 +1,22 @@
 <template>
     <div>
-        <!-- <h1><u>Suggesto Amigo</u></h1> -->
-        <br>
-        <br>
+               
         <div class="title">
             <h2>SignupPage</h2>
         </div>
+
         <div class="wrapper">
             <h3>Welcome New user</h3>
+        </div>
+    
+        <br>
+        
+        <div class="title">
+            <h2>Sign Up</h2>
+        </div>
+
+
+        <div class="wrapper">
             
 
         </div>
