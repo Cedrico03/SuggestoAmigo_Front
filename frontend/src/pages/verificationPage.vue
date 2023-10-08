@@ -40,7 +40,7 @@ export default {
         return {
             VeriMail: "",
             VeriCode: "",
-            Verified: false
+            Verified: true
         }
     },
     components: {
@@ -78,11 +78,15 @@ export default {
 </script>
 
 <style>
+
+/*
+
+IF CLASS MOVE CSS STYLE TO APP .VUE PLS TY <3
+
 .wrapper {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: #028090;
-  /* color: #2c3e50; */
+  background-color: #028090;  
   color: black;
   margin-right:35%;
   margin-left: 35%;
@@ -113,9 +117,8 @@ export default {
 }
 
 .button:hover {
-  background-color: #B5CFC9 ; /* Green */
-}
-
-
+  background-color: #B5CFC9 ; 
+} 
+*/
 
 </style>

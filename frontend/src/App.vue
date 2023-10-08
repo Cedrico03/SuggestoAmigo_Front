@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <img id= "logoImg" src="./assets/AmigoLogo.png" alt="Logo" width="200" @click="setActivePage('signup')">    
-    <LoginPage v-if="activePage == 'login'" @changePageEvent="setActivePage" style="margin-top: -50px"/> <!-- margin top is voor logo niet te hoog te plaatsen -->
-    <SignUpPage v-if="activePage == 'signup'" style="margin-top: -50px"/>
-    <VerificationPage v-if="activePage == 'verification'" @changePageEvent="setActivePage" style="margin-top: -50px"/>
-
+    
+    <HeaderNoAcc v-if="loginStatus == 'false'"></HeaderNoAcc>       
+    
+    
+    <LoginPage v-if="activePage == 'login'" @changePageEvent="setActivePage"/> 
+   
+    <SignUpPage v-if="activePage == 'signup'" @changePageEvent="setActivePage"/>
+    
+    <VerificationPage v-if="activePage == 'verification'" @changePageEvent="setActivePage" />
   </div>
 </template>
 
@@ -12,18 +16,21 @@
 import LoginPage from './pages/loginPage.vue'
 import SignUpPage from './pages/signupPage.vue'
 import VerificationPage from './pages/verificationPage.vue'
+import HeaderNoAcc from './components/headerNoAcc.vue'
 
 export default {
   name: 'App',
   components: {
     LoginPage,
     SignUpPage,
-    VerificationPage
+    VerificationPage,
+    HeaderNoAcc
   },
   data() {
     return {
       // activePage: "login"
-      activePage: "verification"
+      activePage: "verification",
+      loginStatus: "false"
     }
   },
   mounted() {
@@ -45,14 +52,48 @@ export default {
   text-align: center;
   /* margin-top: 60px; */
   /* color: #2c3e50; */
-  color: black;
+  color: #222831;
 }
 body {
-  background-color: #05668D;
+  background-color: #222831;
+  margin: 0;
 }
-#logoImg{
-  margin: 50px;
+.wrapper {
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: #393E46;  
+  color: black;
+  margin-right:35%;
+  margin-left: 35%;
+  padding: 45px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 25px;
+  border-color: black;
+  border: solid 2px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.button {
+  transition-duration: 0.4s;
+  background-color: #84AEA4;
+  padding: 15px 32px;
+  margin-top: 10px;
+  border-radius: 5px;
+
+}
+
+.button:hover {
+  background-color: #B5CFC9 ; 
+} 
 
 /* https://coolors.co/palette/05668d-028090-00a896-02c39a-f0f3bd */
 </style>

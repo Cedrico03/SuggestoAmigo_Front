@@ -1,9 +1,7 @@
 <template>
-    <div>
-               
-        <div class="title">
-            <h2>SignupPage</h2>
-        </div>
+    <div>              
+        
+        <h2>SignupPage</h2>
 
         <div class="wrapper">
             <h3>Welcome New user</h3>
@@ -17,7 +15,9 @@
 
 
         <div class="wrapper">
-            
+            <div @click="$emit('changePageEvent', 'login')"> <!-- emit is voor parent folder functie (setActivePage) te callen-->
+                    <u>Log In</u>
+                </div>
 
         </div>
     </div>
