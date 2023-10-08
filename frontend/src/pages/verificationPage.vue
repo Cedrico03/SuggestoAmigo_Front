@@ -57,7 +57,7 @@ export default {
                 "email": this.VeriMail,
                 "code": this.VeriCode
             }
-            fetch(" ", {                // *+*
+            fetch(" LINK ", {                // *+*
                 method: "POST",
                 headers: {
 

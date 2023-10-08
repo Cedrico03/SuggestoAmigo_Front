@@ -4,7 +4,7 @@
             <h2>Create an account</h2>
 
             <div class="input-group">
-                Email:
+                Firstname:
                 <br>
                 <input type="text" placeholder="Bhibo" v-model="Firstname">
             </div>
@@ -12,15 +12,17 @@
             <br>
 
             <div class="input-group">
-                Password:
+                Lastname:
                 <br>
-                <input type="password" placeholder="Banderkam" v-model="Lastname">
+                <input type="text" placeholder="Banderkam" v-model="Lastname">
             </div>
 
             <br>
 
             <div class="input-group">
                 Email:
+                <p class="error" v-if="Resp == 'invalid email format'">Invalid e-mail format</p>
+                <p class="error" v-if="Resp =='email already in use'">E-mail already in use</p>
                 <br>
                 <input type="text" placeholder="email" v-model="Email">
             </div>
@@ -35,7 +37,7 @@
 
             <br>
 
-            <div @click="SignUp()" class="button"><b>Login</b></div>
+            <div @click="SignUp()" class="button"><b>Sign Up</b></div>
 
             <br>
             <br>
@@ -55,8 +57,9 @@ export default {
         return {
             Firstname:"",
             Lastname:"",
-            Mail: "",
+            Email: "",
             Password: "",
+            Resp: "",
         }
     },
     components: {
@@ -75,20 +78,31 @@ export default {
                 "firstname": this.Firstname,
                 "lastname": this.Lastname,
                 "email": this.Email,
-                "password": this.Password
+                "password": this.Password,
             }
-            fetch(" ", {                    // *+*
-                method: "POST",
-                headers: {
-
-                },
-                body: JSON.stringify(data)
-            })
-            .then((response) => response.json())
-            .then((data) => console.log("Success:", data)) 
+            fetch(" https://localhost:7166/Account ", 
+                {                    
+                    method: "POST",
+                    headers: {
+                        "accept": "text/plain",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                }
+            )
+            .then(response => response.json())
+            .then((data) => {
+                console.log("Success:", data);
+                this.Resp = data.value.message // true zetten => prompt de success div
+            }) 
             .catch((error) => console.error("Error:", error))
         }
     }
 
 }
 </script>
+<style>
+#error{
+    text-decoration-color: red;
+}
+</style>

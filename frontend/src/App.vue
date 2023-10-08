@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     
-    <HeaderNoAcc v-if="loginStatus == 'false'"></HeaderNoAcc>       
+    <HeaderNoAcc v-if="loginStatus == 'false'" @changePageEvent="setActivePage"/>      
     
     <LoginPage v-if="activePage == 'login'" @changePageEvent="setActivePage"/> 
    
@@ -54,7 +54,7 @@ export default {
   color: #112D4E;
 }
 body {
-  background-color: #112D4E;
+  background-color: #DBE2EF;
   margin: 0;
 }
 .wrapper {
