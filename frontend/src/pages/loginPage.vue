@@ -2,10 +2,9 @@
     <div>
         <!-- <h1><u>Suggesto Amigo</u></h1> -->
         
-        <div class="title">
-            <h2>LoginPage</h2>
-        </div>
+        
         <div class="wrapper">
+            <h2>LoginPage</h2>
             <div class="input-group">
                 Email:
                 <br>

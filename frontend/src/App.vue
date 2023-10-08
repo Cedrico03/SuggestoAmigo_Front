@@ -3,7 +3,6 @@
     
     <HeaderNoAcc v-if="loginStatus == 'false'"></HeaderNoAcc>       
     
-    
     <LoginPage v-if="activePage == 'login'" @changePageEvent="setActivePage"/> 
    
     <SignUpPage v-if="activePage == 'signup'" @changePageEvent="setActivePage"/>
@@ -52,19 +51,18 @@ export default {
   text-align: center;
   /* margin-top: 60px; */
   /* color: #2c3e50; */
-  color: #222831;
+  color: #112D4E;
 }
 body {
-  background-color: #222831;
+  background-color: #112D4E;
   margin: 0;
 }
 .wrapper {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: #393E46;  
+  background-color: #3F72AF;  
   color: black;
-  margin-right:35%;
-  margin-left: 35%;
+  margin: 5% 35% 0 35%;
   padding: 45px;
   padding-top: 30px;
   padding-bottom: 20px;
@@ -84,7 +82,7 @@ body {
 
 .button {
   transition-duration: 0.4s;
-  background-color: #84AEA4;
+  background-color: #DBE2EF;
   padding: 15px 32px;
   margin-top: 10px;
   border-radius: 5px;
@@ -92,7 +90,7 @@ body {
 }
 
 .button:hover {
-  background-color: #B5CFC9 ; 
+  background-color: #DBE2EF ; 
 } 
 
 /* https://coolors.co/palette/05668d-028090-00a896-02c39a-f0f3bd */

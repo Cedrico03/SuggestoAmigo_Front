@@ -45,24 +45,28 @@ export default {
     height: auto;
     margin: 0;
     padding: 0;
-    background-color: #00ADB5;
+    background-color: #3F72AF;
 }
 #logoImg{
-    width: 5%;
-    height: 5%;
+    width: 8%;
+    height: 8%;
     float: left;
-    margin-left: 0;
+    margin: 0 0 0 1%;
 }
 #headerButtons{
     position: absolute;
     right: 1%;
-    display: flex;
-    margin-top: 9px
+    margin-top: 1.3%;
 }
 #headerButton{
     text-decoration: underline;
     cursor: pointer;
-    width: 100px;    
-    margin-right: 5%;
+    padding: 0px;
+    width: 100px;
+    height: 22px;
+    margin: 10px 1% 0px 0px;
+    background-color: #DBE2EF;
+    border: 2px solid #3F72AF;
+    border-radius: 5px;
 }
 </style>
