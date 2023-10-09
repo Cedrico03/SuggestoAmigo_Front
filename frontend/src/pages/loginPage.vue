@@ -36,7 +36,7 @@ export default {
     name: "LoginPage",
     data() {
         return {
-            Mail: "",
+            Email: "",
             Password: "",
         }
     },
@@ -52,16 +52,17 @@ export default {
             console.log(this.Password);
 
             // hieronder al fetch structuur:, *+* = te vervolledigen
-            let data = {
-                "email": this.Email,
-                "password": this.Password
-            }
-            fetch(" LINK ", {                    // *+*
-                method: "GET",
-                headers: {
 
+            let credentials = this.Email + ":" + this.Password
+            
+            fetch("https://localhost:5148/Account",
+            {
+                headers: {
+                'Accept': 'text/plain',
+                'Content-Type': 'application/json',
+                'Authorization' : "Basic " + btoa(credentials)
                 },
-                body: JSON.stringify(data)
+                method: "GET"
             })
             .then((response) => response.json())
             .then((data) => console.log("Success:", data)) 
@@ -109,6 +110,10 @@ export default {
 
 .button:hover {
   background-color: #B5CFC9 ; /* Green */
+}
+
+.button:active {
+    transform: translateY(8px);
 }
 
 .signup-section {

@@ -9,6 +9,7 @@
             <div id="headerButtons">
                 <p id= "headerButton" @click="$emit('changePageEvent', 'signup')">Sign Up</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'login')">Log In</p>
+                <p id= "headerButton" @click="$emit('changePageEvent', 'verification')">Verify</p>
             </div>
         
         </div>
@@ -70,5 +71,9 @@ export default {
     background-color: #DBE2EF;
     border: 2px solid #3F72AF;
     border-radius: 5px;
+}
+
+#headerbutton:active {
+    transform: translateY(8px);
 }
 </style>

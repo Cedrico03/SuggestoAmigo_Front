@@ -57,14 +57,22 @@ export default {
                 "email": this.VeriMail,
                 "code": this.VeriCode
             }
-            fetch(" LINK ", {                // *+*
-                method: "POST",
-                headers: {
 
+            const queryParams = new URLSearchParams();
+            queryParams.append('email', data.email);
+            queryParams.append('verificationCode', data.code);
+
+            // Combine the base URL and query parameters
+            const urlWithQueryParams = `https://localhost:5148/VerificationCode?${queryParams.toString()}`;
+            
+            fetch(urlWithQueryParams, {
+                method: "PUT",
+                headers: {
+                        "accept": "text/plain",
+                        "Content-Type": "application/json"
                 },
                 body: JSON.stringify(data)
             })
-            .then((response) => response.json())
             .then((data) => {
                 console.log("Success:", data);
                 this.Verified = true // true zetten => prompt de success div

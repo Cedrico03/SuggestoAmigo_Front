@@ -37,6 +37,13 @@
 
             <br>
 
+            <div>
+                <input type="checkbox" id="over18" v-model="Over18">
+                <label for="myCheck">I am over 18</label> 
+            </div>
+
+            <br>
+
             <div @click="SignUp()" class="button"><b>Sign Up</b></div>
 
             <br>
@@ -60,6 +67,7 @@ export default {
             Email: "",
             Password: "",
             Resp: "",
+            Over18: false,
         }
     },
     components: {
@@ -79,8 +87,10 @@ export default {
                 "lastname": this.Lastname,
                 "email": this.Email,
                 "password": this.Password,
+                "isverified":false
             }
-            fetch(" https://localhost:7166/Account ", 
+            if (!this.Over18) return
+            fetch("https://localhost:5148/Account", 
                 {                    
                     method: "POST",
                     headers: {
