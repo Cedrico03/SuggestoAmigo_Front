@@ -40,7 +40,7 @@ export default {
         return {
             VeriMail: "",
             VeriCode: "",
-            Verified: true
+            Verified: false
         }
     },
     components: {
