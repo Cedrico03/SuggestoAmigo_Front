@@ -55,19 +55,21 @@ export default {
     width: 8%;
     height: 8%;
     float: left;
-    margin: 0 0 0 3%;
+    margin: 1% 0 1% 10%;
     cursor:pointer;
 }
 #headerButtons{
     position: absolute;
-    right: 3%;
+    display: flex;
+    right: 10%;
+    margin: 3% 0 0 2%;
 }
 #headerButton{
     text-align: center;
     cursor: pointer;
     padding: 10px 0;
     width: 100px;
-    margin: 1.3% 1% 0px 0px;
+    margin: 1.3% 1% 0px 10px;
     background-color: #DBE2EF;
     border: 2px solid #3F72AF;
     border-radius: 5px;

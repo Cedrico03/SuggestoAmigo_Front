@@ -49,7 +49,7 @@
             <br>
             <br>
             
-            <div @click="$emit('changePageEvent', 'login')"> <!-- emit is voor parent folder functie (setActivePage) te callen-->
+            <div @click="$emit('changePageEvent', 'login')" style="margin-top: 10px"> <!-- emit is voor parent folder functie (setActivePage) te callen-->
                     <u>Log In</u>
             </div>
         </div>
