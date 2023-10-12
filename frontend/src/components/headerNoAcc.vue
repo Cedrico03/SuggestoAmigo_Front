@@ -66,6 +66,7 @@ export default {
 #headerButton{
     font-size:  14px;
     cursor: pointer;
+    
     width: 50px;
     margin: auto;/*align in header bar*/ 
     margin-left: 10px;/*space between the buttons */
@@ -73,6 +74,9 @@ export default {
     background-color: #DBE2EF;
     /* border: 2px solid #3F72AF; */
     border-radius: 5px;
+}
+#headerButton:hover{
+    background-color:#c1c9d9 ;
 }
 
 #headerbutton:active {

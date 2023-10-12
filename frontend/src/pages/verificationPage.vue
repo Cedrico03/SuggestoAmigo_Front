@@ -7,14 +7,14 @@
             <div class="input-group">
                 Email:
                 <br>
-                <input type="text" placeholder="email" v-model="VeriMail">
+                <input type="text" placeholder="Email" v-model="VeriMail">
                 <br>
             </div>
             <br>
             <div class="input-group">
                 Verification Code:
                 <br>
-                <input type="text" placeholder="code" v-model="VeriCode"> <!-- v-model is nodig voor later in VerifyCode functie de value eruit te halen-->
+                <input type="text" placeholder="Code" v-model="VeriCode"> <!-- v-model is nodig voor later in VerifyCode functie de value eruit te halen-->
             </div>
             <br>
             <div @click="VerifyCode()" class="button">Verify</div>

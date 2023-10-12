@@ -88,9 +88,9 @@ h2{
 
 
 .button {
-  transition-duration: 0.4s;
   background-color: #DBE2EF;
-  padding: 15px 30px;
+  width: 120px;
+  padding: 15px 0;
   margin: 0px 0 10px 0;
   border-radius: 5px;
   cursor:pointer;
@@ -98,7 +98,7 @@ h2{
 }
 
 .button:hover {
-  background-color: #DBE2EF ; 
+  background-color:#c1c9d9 ; 
 } 
 
 .button:active {
