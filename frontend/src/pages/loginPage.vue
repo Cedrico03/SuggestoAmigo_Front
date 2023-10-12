@@ -14,6 +14,9 @@
             </div>
             <div @click="LogIn()" class="button">Login</div>
         </div>
+        <div v-if="loginError" class="wrapper">
+            Email or password is wrong
+        </div>
 
         <div class="wrapper"> <!-- emit is voor parent folder functie (setActivePage) te callen-->
             <p>Not a member yet?</p>
@@ -30,6 +33,8 @@ export default {
         return {
             Email: "",
             Password: "",
+            loginError: false,
+            errorCode: null
         }
     },
     components: {
@@ -40,11 +45,6 @@ export default {
     },
     methods: {
         LogIn() {
-            console.log(this.Email);
-            console.log(this.Password);
-
-            // hieronder al fetch structuur:, *+* = te vervolledigen
-
             let credentials = this.Email + ":" + this.Password
             
             fetch("https://localhost:5148/Account",
@@ -57,8 +57,21 @@ export default {
                 method: "GET"
             })
             .then((response) => response.json())
-            .then((data) => console.log("Success:", data)) 
-            .catch((error) => console.error("Error:", error))
+            .then((data) => { // successvol
+                console.log("Success:", data)
+                this.loginError = false;
+                this.errorCode = null
+                this.$emit('changePageEvent', 'friends')
+            })
+            .catch((error) => { // niet successvol
+                console.error("Error:", error)
+                this.loginError = true;
+                if (error.response && error.response.status) {
+                    this.errorCode = error.response.status;
+                } else {
+                    this.errorCode = "Unknown error";
+                }
+            })
         }
     }
 

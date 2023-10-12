@@ -60,10 +60,6 @@ export default {
     },
     methods: {
         SignUp() {
-            console.log(this.Email);
-            console.log(this.Password);
-
-            // hieronder al fetch structuur:, *+* = te vervolledigen
             let data = {
                 "firstname": this.Firstname,
                 "lastname": this.Lastname,

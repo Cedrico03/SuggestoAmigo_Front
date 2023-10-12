@@ -10,7 +10,7 @@
     <VerificationPage v-if="activePage == 'verification'" @changePageEvent="setActivePage" />
 
 
-    
+
     <FriendsPage v-if="activePage == 'friends'" @changePageEvent="setActivePage" />
 
     <AddFriendPage v-if="activePage == 'addFriend'" @changePageEvent="setActivePage" />
@@ -41,8 +41,8 @@ export default {
   },
   data() {
     return {
-      // activePage: "login"
-      activePage: "verification",
+      activePage: "signup",
+      // activePage: "verification",
       loginStatus: "false"
     }
   },

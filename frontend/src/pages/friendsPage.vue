@@ -1,8 +1,7 @@
 <template>
     <div>        
-    
         <div class="wrapper">
-
+            <h1>friends page</h1>
             
         </div>
 
