@@ -4,54 +4,36 @@
             <h2>Create an account</h2>
 
             <div class="input-group">
-                Firstname:
-                <br>
-                <input type="text" placeholder="Bhibo" v-model="Firstname">
+                <input type="text" placeholder="Firstname" v-model="Firstname">
             </div>
 
-            <br>
-
             <div class="input-group">
-                Lastname:
-                <br>
-                <input type="text" placeholder="Banderkam" v-model="Lastname">
+                <input type="text" placeholder="Lastname" v-model="Lastname">
             </div>
 
-            <br>
-
             <div class="input-group">
-                Email:
                 <p class="error" v-if="Resp == 'invalid email format'">Invalid e-mail format</p>
                 <p class="error" v-if="Resp =='email already in use'">E-mail already in use</p>
-                <br>
-                <input type="text" placeholder="email" v-model="Email">
+                <input type="text" placeholder="Email" v-model="Email">
             </div>
-
-            <br>
 
             <div class="input-group">
-                Password:
-                <br>
-                <input type="password" placeholder="password" v-model="Password">
+                <input type="password" placeholder="Password" v-model="Password">
             </div>
 
-            <br>
-
-            <div>
+            <div class="input-group">
                 <input type="checkbox" id="over18" v-model="Over18">
                 <label for="myCheck">I am over 18</label> 
             </div>
 
-            <br>
 
-            <div @click="SignUp()" class="button"><b>Sign Up</b></div>
-
-            <br>
-            <br>
+            <div @click="SignUp()" class="button">Sign Up</div>
             
-            <div @click="$emit('changePageEvent', 'login')" style="margin-top: 10px"> <!-- emit is voor parent folder functie (setActivePage) te callen-->
-                    <u>Log In</u>
-            </div>
+        </div>
+
+        <div class="wrapper" > <!-- emit is voor parent folder functie (setActivePage) te callen-->
+            <p>Already have an account?</p>
+            <p class="button" @click="$emit('changePageEvent', 'login')">Log In</p>
         </div>
     </div>
 </template>
@@ -114,5 +96,6 @@ export default {
 <style>
 #error{
     text-decoration-color: red;
+    display: block;
 }
 </style>

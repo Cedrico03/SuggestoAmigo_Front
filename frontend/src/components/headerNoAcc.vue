@@ -10,8 +10,7 @@
                 <p id= "headerButton" @click="$emit('changePageEvent', 'signup')">Sign Up</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'login')">Log In</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'verification')">Verify</p>
-            </div>
-        
+            </div>        
         </div>
     </div>
 </template>
@@ -45,33 +44,34 @@ export default {
 <style>
 #noAcc{
     display: flex;
-    height: auto;
-    margin: 0;
+    height: 106px;
+    margin: 0 0 50px 0;
     padding: 0;
     background-color: #3F72AF;
-    border-bottom: solid 2px black;
+    border-bottom: 1px solid black;
 }
 #logoImg{
-    width: 8%;
-    height: 8%;
+    width: 85px;
+    height: 85px;
     float: left;
-    margin: 1% 0 1% 10%;
+    margin: 10px 0 10px 10%;
     cursor:pointer;
 }
 #headerButtons{
     position: absolute;
     display: flex;
     right: 10%;
-    margin: 3% 0 0 2%;
+    margin: 32px 0 0 10px;
 }
 #headerButton{
-    text-align: center;
+    font-size:  14px;
     cursor: pointer;
-    padding: 10px 0;
-    width: 100px;
-    margin: 1.3% 1% 0px 10px;
+    width: 50px;
+    margin: auto;/*align in header bar*/ 
+    margin-left: 10px;/*space between the buttons */
+    padding: 10px;/* align text in bunnen vertically */
     background-color: #DBE2EF;
-    border: 2px solid #3F72AF;
+    /* border: 2px solid #3F72AF; */
     border-radius: 5px;
 }
 

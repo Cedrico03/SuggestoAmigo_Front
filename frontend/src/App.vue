@@ -57,18 +57,24 @@ body {
   background-color: #DBE2EF;
   margin: 0;
 }
+input{
+  margin-top: 5px;  
+}
+h2{
+  margin-bottom: 10px;
+}
 .wrapper {
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: #3F72AF;  
   color: black;
-  margin: 5% 35% 0 35%;
-  padding: 45px;
-  padding-top: 30px;
-  padding-bottom: 20px;
-  border-radius: 25px;
-  border-color: black;
-  border: solid 2px;
+  max-width: 350px;
+  margin: 0 0 20px 0;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 
   display: flex;
   flex-direction: column;
@@ -77,15 +83,17 @@ body {
 }
 
 .input-group {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
+
 
 .button {
   transition-duration: 0.4s;
   background-color: #DBE2EF;
-  padding: 15px 32px;
-  margin-top: 10px;
+  padding: 15px 30px;
+  margin: 0px 0 10px 0;
   border-radius: 5px;
+  cursor:pointer;
 
 }
 

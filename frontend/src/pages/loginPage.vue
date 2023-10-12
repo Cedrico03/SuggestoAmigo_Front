@@ -4,28 +4,20 @@
         
         
         <div class="wrapper">
-            <h2>LoginPage</h2>
+            <h2>Log In</h2>
             <div class="input-group">
-                Email:
-                <br>
-                <input type="text" placeholder="email" v-model="Email">
+                <input type="text" placeholder="Email" v-model="Email">
             </div>
             <br>
             <div class="input-group">
-                Password:
-                <br>
-                <input type="password" placeholder="password" v-model="Password">
+                <input type="password" placeholder="Password" v-model="Password">
             </div>
-            <br>
-            <div @click="LogIn()" class="button"><b>Login</b></div>
-            <br>
-            <div class="signup-section">
-                Not a member yet? 
-                <div @click="$emit('changePageEvent', 'signup')"> <!-- emit is voor parent folder functie (setActivePage) te callen-->
-                    <u>Sign up now</u>
-                </div>
-            </div>
+            <div @click="LogIn()" class="button">Login</div>
+        </div>
 
+        <div class="wrapper"> <!-- emit is voor parent folder functie (setActivePage) te callen-->
+            <p>Not a member yet?</p>
+            <p class="button" @click="$emit('changePageEvent', 'signup')">Sign Up</p>
         </div>
     </div>
 </template>
@@ -74,11 +66,11 @@ export default {
 </script>
 
 <style>
-.wrapper {
+/* .wrapper {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: #028090;
-  /* color: #2c3e50; */
+ 
   color: black;
   margin-right:35%;
   margin-left: 35%;
@@ -109,7 +101,7 @@ export default {
 }
 
 .button:hover {
-  background-color: #B5CFC9 ; /* Green */
+  background-color: #B5CFC9 ; 
 }
 
 .button:active {
@@ -118,7 +110,7 @@ export default {
 
 .signup-section {
     margin-top: 30px;
-}
+} */
 
 
 </style>

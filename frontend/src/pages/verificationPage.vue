@@ -1,7 +1,6 @@
 <template>
     <div>
-        <!-- <h1><u>Suggesto Amigo</u></h1> -->
-       
+        <!-- <h1><u>Suggesto Amigo</u></h1> -->     
         
         <div class="wrapper" >
             <h2>Verification</h2>
@@ -18,7 +17,7 @@
                 <input type="text" placeholder="code" v-model="VeriCode"> <!-- v-model is nodig voor later in VerifyCode functie de value eruit te halen-->
             </div>
             <br>
-            <div @click="VerifyCode()" class="button"><b>Verify</b></div>
+            <div @click="VerifyCode()" class="button">Verify</div>
             
             <!-- Check if account has been verified -->
             <div v-if="Verified == true" style="margin-top: 20px"> 
