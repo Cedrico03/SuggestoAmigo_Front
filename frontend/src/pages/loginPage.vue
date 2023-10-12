@@ -66,51 +66,5 @@ export default {
 </script>
 
 <style>
-/* .wrapper {
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  background-color: #028090;
- 
-  color: black;
-  margin-right:35%;
-  margin-left: 35%;
-  padding: 45px;
-  padding-top: 30px;
-  padding-bottom: 20px;
-  border-radius: 25px;
-  border-color: black;
-  border: solid 2px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.input-group {
-    margin-bottom: 10px;
-}
-
-.button {
-  transition-duration: 0.4s;
-  background-color: #84AEA4;
-  padding: 15px 32px;
-  margin-top: 10px;
-  border-radius: 5px;
-
-}
-
-.button:hover {
-  background-color: #B5CFC9 ; 
-}
-
-.button:active {
-    transform: translateY(8px);
-}
-
-.signup-section {
-    margin-top: 30px;
-} */
-
 
 </style>

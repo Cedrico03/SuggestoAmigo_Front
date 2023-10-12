@@ -8,6 +8,14 @@
     <SignUpPage v-if="activePage == 'signup'" @changePageEvent="setActivePage"/>
     
     <VerificationPage v-if="activePage == 'verification'" @changePageEvent="setActivePage" />
+
+
+    
+    <FriendsPage v-if="activePage == 'friends'" @changePageEvent="setActivePage" />
+
+    <AddFriendPage v-if="activePage == 'addFriend'" @changePageEvent="setActivePage" />
+    
+    <RequestPage v-if="activePage == 'request'" @changePageEvent="setActivePage" />
   </div>
 </template>
 
@@ -15,6 +23,9 @@
 import LoginPage from './pages/loginPage.vue'
 import SignUpPage from './pages/signupPage.vue'
 import VerificationPage from './pages/verificationPage.vue'
+import FriendsPage from './pages/friendsPage.vue'
+import AddFriendPage from './pages/addFriendPage.vue'
+import RequestPage from './pages/requestPage.vue'
 import HeaderNoAcc from './components/headerNoAcc.vue'
 
 export default {
@@ -23,7 +34,10 @@ export default {
     LoginPage,
     SignUpPage,
     VerificationPage,
-    HeaderNoAcc
+    HeaderNoAcc,
+    FriendsPage,
+    AddFriendPage,
+    RequestPage
   },
   data() {
     return {
