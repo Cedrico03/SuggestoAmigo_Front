@@ -12,8 +12,6 @@
             </div>
 
             <div class="input-group">
-                <p class="error" v-if="Resp == 'invalid email format'">Invalid e-mail format</p>
-                <p class="error" v-if="Resp =='email already in use'">E-mail already in use</p>
                 <input type="text" placeholder="Email" v-model="Email">
             </div>
 
@@ -28,7 +26,14 @@
 
 
             <div @click="SignUp()" class="button">Sign Up</div>
+
+            <div v-if="Resp == 'user added'"> ✔️Successfully added, check your spam folder and <span @click="$emit('changePageEvent', 'verification')"><u><b>verify</b></u></span> !✔️</div>
             
+            <div> <!-- error div: -->
+                <p class="error" v-if="Resp == 'invalid email format'">Invalid e-mail format</p>
+                <p class="error" v-if="Resp =='email already in use'">E-mail already in use</p>
+            </div>
+
         </div>
 
         <div class="wrapper" > <!-- emit is voor parent folder functie (setActivePage) te callen-->
@@ -80,8 +85,12 @@ export default {
             )
             .then(response => response.json())
             .then((data) => {
-                console.log("Success:", data);
-                this.Resp = data.value.message // true zetten => prompt de success div
+                console.log(data);
+                if(data.message == 200) this.Resp = data.message 
+                else { // email already in use is data.value.message en invalid format = data.message       wnr email al in use is geeft het een error data.message is undefined *
+                    if(data.message.length == 'null') this.Resp = data.value.message
+                    else this.Resp = data.message
+                }
             }) 
             .catch((error) => console.error("Error:", error))
         }
