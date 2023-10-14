@@ -61,7 +61,7 @@ export default {
                 console.log("Success:", data)
                 this.loginError = false;
                 this.errorCode = null
-                this.$emit('changePageEvent', 'friends')
+                this.$emit('changePageEvent', 'friends') // verander v page, naar friends page
             })
             .catch((error) => { // niet successvol
                 console.error("Error:", error)

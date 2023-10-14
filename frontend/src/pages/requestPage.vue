@@ -44,7 +44,7 @@ export default {
     },
     methods: {
         getAllRequests() {
-
+            
         },
 
         answerRequest(YesOrNo) { // verwijder pending request + zet als vriend of niet

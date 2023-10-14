@@ -31,37 +31,37 @@ export default {
         
     },
     mounted() {
-        this.getAllFriends()
+        // this.getAllFriends()
     },
     methods: {
         getAllFriends() {
-            // let credentials = this.Email + ":" + this.Password
+            let credentials = this.Email + ":" + this.Password
             
-            // fetch("https://localhost:5148/Account",
-            // {
-            //     headers: {
-            //     'Accept': 'text/plain',
-            //     'Content-Type': 'application/json',
-            //     'Authorization' : "Basic " + btoa(credentials)
-            //     },
-            //     method: "GET"
-            // })
-            // .then((response) => response.json())
-            // .then((data) => { // successvol
-            //     console.log("Success:", data)
-            //     this.loginError = false;
-            //     this.errorCode = null
-            //     this.$emit('changePageEvent', 'friends')
-            // })
-            // .catch((error) => { // niet successvol
-            //     console.error("Error:", error)
-            //     this.loginError = true;
-            //     if (error.response && error.response.status) {
-            //         this.errorCode = error.response.status;
-            //     } else {
-            //         this.errorCode = "Unknown error";
-            //     }
-            // })
+            fetch("https://localhost:5148/Friends",
+            {
+                headers: {
+                'Accept': 'text/plain',
+                'Content-Type': 'application/json',
+                'Authorization' : "Basic " + btoa(credentials)
+                },
+                method: "GET"
+            })
+            .then((response) => response.json())
+            .then((data) => { // successvol
+                console.log("Success:", data)
+                // this.loginError = false;
+                // this.errorCode = null
+                // this.$emit('changePageEvent', 'friends') // verander v page, naar friends page
+            })
+            .catch((error) => { // niet successvol
+                console.error("Error:", error)
+                this.loginError = true;
+                if (error.response && error.response.status) {
+                    this.errorCode = error.response.status;
+                } else {
+                    this.errorCode = "Unknown error";
+                }
+            })
         }
     }
 

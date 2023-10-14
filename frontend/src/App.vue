@@ -41,8 +41,7 @@ export default {
   },
   data() {
     return {
-      activePage: "request",
-      // activePage: "verification",
+      activePage: "signup",
       loginStatus: "false"
     }
   },
