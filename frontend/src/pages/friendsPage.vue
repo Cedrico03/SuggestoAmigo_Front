@@ -8,10 +8,10 @@
                 <th>All friends</th>
             </tr>
             <tr v-for="friend in friends" :key="friend.id">
-                <td>{{ friend.firstname + friend.lastname }}</td>
+                <td>{{ friend.fullName}}</td>
             </tr>        
         </table>
-            
+            <button @click="$emit('changePageEvent', 'request')">doeding MOET WEG ROEPERT</button>
         </div>
 
 
@@ -31,12 +31,12 @@ export default {
         
     },
     mounted() {
-        // this.getAllFriends()
+        this.getAllFriends()
     },
     methods: {
         getAllFriends() {
-            let credentials = this.Email + ":" + this.Password
-            
+            let credentials = this.$parent.username + ":" + this.$parent.password;
+
             fetch("https://localhost:5148/Friends",
             {
                 headers: {
@@ -49,9 +49,7 @@ export default {
             .then((response) => response.json())
             .then((data) => { // successvol
                 console.log("Success:", data)
-                // this.loginError = false;
-                // this.errorCode = null
-                // this.$emit('changePageEvent', 'friends') // verander v page, naar friends page
+                this.friends = data;
             })
             .catch((error) => { // niet successvol
                 console.error("Error:", error)

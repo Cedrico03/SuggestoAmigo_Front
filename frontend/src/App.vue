@@ -42,7 +42,11 @@ export default {
   data() {
     return {
       activePage: "signup",
-      loginStatus: "false"
+      loginStatus: "false",
+
+      username: "",
+      password: "",
+
     }
   },
   mounted() {
@@ -51,7 +55,8 @@ export default {
   methods: {
     setActivePage(page) {
       this.activePage = page;
-    }
+    },
+
   }
 }
 </script>

@@ -22,6 +22,7 @@
             <p>Not a member yet?</p>
             <p class="button" @click="$emit('changePageEvent', 'signup')">Sign Up</p>
         </div>
+
     </div>
 </template>
 
@@ -45,7 +46,9 @@ export default {
     },
     methods: {
         LogIn() {
-            let credentials = this.Email + ":" + this.Password
+            this.$parent.username = this.Email;
+            this.$parent.password = this.Password;
+            let credentials = this.Email + ":" + this.Password;
             
             fetch("https://localhost:5148/Account",
             {
@@ -72,7 +75,7 @@ export default {
                     this.errorCode = "Unknown error";
                 }
             })
-        }
+        },
     }
 
 }

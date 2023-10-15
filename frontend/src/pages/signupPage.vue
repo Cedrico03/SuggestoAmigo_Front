@@ -87,9 +87,8 @@ export default {
             .then((data) => {
                 console.log(data);
                 if(data.message == 200) this.Resp = data.message 
-                else { // email already in use is data.value.message en invalid format = data.message       wnr email al in use is geeft het een error data.message is undefined *
-                    if(data.message.length == 'null') this.Resp = data.value.message
-                    else this.Resp = data.message
+                else {
+                    this.Resp = data.message 
                 }
             }) 
             .catch((error) => console.error("Error:", error))
