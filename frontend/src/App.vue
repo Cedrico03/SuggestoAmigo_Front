@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     
-    <HeaderNoAcc v-if="loginStatus == 'false'" @changePageEvent="setActivePage"/>      
+    <HeaderNoAcc v-if="username == ''" @changePageEvent="setActivePage"/>      
+    
+    <HeaderAcc v-if="username != ''" @changePageEvent="setActivePage"/>
+    
+    
     
     <LoginPage v-if="activePage == 'login'" @changePageEvent="setActivePage"/> 
    
@@ -27,6 +31,7 @@ import FriendsPage from './pages/friendsPage.vue'
 import AddFriendPage from './pages/addFriendPage.vue'
 import RequestPage from './pages/requestPage.vue'
 import HeaderNoAcc from './components/headerNoAcc.vue'
+import HeaderAcc from './components/headerAcc.vue'
 
 export default {
   name: 'App',
@@ -35,6 +40,7 @@ export default {
     SignUpPage,
     VerificationPage,
     HeaderNoAcc,
+    HeaderAcc,
     FriendsPage,
     AddFriendPage,
     RequestPage
@@ -42,7 +48,6 @@ export default {
   data() {
     return {
       activePage: "signup",
-      loginStatus: "false",
 
       username: "",
       password: "",
@@ -67,16 +72,19 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /* margin-top: 60px; */
-  /* color: #2c3e50; */
   color: #112D4E;
 }
 body {
   background-color: #DBE2EF;
   margin: 0;
 }
-input{
-  margin-top: 5px;  
+table{
+  border-collapse: collapse;
+  border: black 1px solid;
+  width: 200px;
+}
+td{
+  text-align: left;
 }
 h2{
   margin-bottom: 10px;
@@ -85,14 +93,16 @@ h2{
   text-align: center;
   background-color: #3F72AF;  
   color: black;
-  max-width: 350px;
-  margin: 0 0 20px 0;
+  max-width: 400px;
   border: 1px solid black;
   border-radius: 10px;
-
+  
+  margin: 0 0 20px 0;
   display: block;
   margin-left: auto;
   margin-right: auto;
+
+  padding-bottom: 5px;
 
   display: flex;
   flex-direction: column;
@@ -126,7 +136,5 @@ h2{
 #headerbutton:active {
   transform:translateY(8px);
 }
-
-/* https://coolors.co/palette/05668d-028090-00a896-02c39a-f0f3bd */
 </style>
 

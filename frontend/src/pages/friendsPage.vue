@@ -1,7 +1,19 @@
 <template>
     <div>        
         <div class="wrapper">
-            <h1>friends page</h1>
+            
+            
+            
+            <h1>Friends</h1>
+            
+            <div id="friendPageButtons">
+                <div class="friendButton" @click="$emit('changePageEvent', 'addFriend')">Add Friends</div>
+                <div class="friendButton" @click="$emit('changePageEvent', 'request')"
+                style="margin-left: 10px">
+                    Requests
+                </div>
+            </div>
+
 
             <table border="2" style="margin: 0 auto;">
             <tr>
@@ -11,7 +23,6 @@
                 <td>{{ friend.fullName}}</td>
             </tr>        
         </table>
-            <button @click="$emit('changePageEvent', 'request')">doeding MOET WEG ROEPERT</button>
         </div>
 
 
@@ -28,7 +39,6 @@ export default {
         }
     },
     components: {
-        
     },
     mounted() {
         this.getAllFriends()
@@ -65,3 +75,25 @@ export default {
 
 }
 </script>
+
+<style>
+#friendPageButtons{
+    display: flex;
+    margin:-18px 0 10px 0;
+}
+.friendButton{
+    font-size:  14px;
+    cursor: pointer;
+    
+    width: 80px;
+    margin: 10px;/*align in header bar*/ 
+    
+    padding: 10px;/* align text in button vertically */
+    background-color: #DBE2EF;
+    border-radius: 5px;
+}
+.friendButton:hover{
+    background-color:#c1c9d9 ;
+}
+
+</style>

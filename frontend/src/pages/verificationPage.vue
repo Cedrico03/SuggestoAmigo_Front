@@ -4,28 +4,26 @@
         
         <div class="wrapper" >
             <h2>Verification</h2>
-            <div class="input-group">
-                Email:
-                <br>
+            <div class="input-group">                
                 <input type="text" placeholder="Email" v-model="VeriMail">
-                <br>
             </div>
             <br>
             <div class="input-group">
-                Verification Code:
-                <br>
-                <input type="text" placeholder="Code" v-model="VeriCode"> <!-- v-model is nodig voor later in VerifyCode functie de value eruit te halen-->
+                <input type="text" placeholder="Verification Code" v-model="VeriCode"> <!-- v-model is nodig voor later in VerifyCode functie de value eruit te halen-->
             </div>
             <br>
             <div @click="VerifyCode()" class="button">Verify</div>
             
             <!-- Check if account has been verified -->
-            <div v-if="Verified == true" style="margin-top: 20px"> 
+            <div v-if="Verified == true"> 
                 ✔️ Success, you have been verified! ✔️
-                <br>
-                click <span @click="$emit('changePageEvent', 'login')"><b><u>here</u></b></span> to login
-            </div>
+            </div>            
             
+            
+        </div>
+        <div class="wrapper" > <!-- emit is voor parent folder functie (setActivePage) te callen-->
+        <p>Click the button to log in once you're verified</p>
+        <p class="button" @click="$emit('changePageEvent', 'login')">Log In</p>
         </div>
         
     </div>

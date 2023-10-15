@@ -13,9 +13,9 @@
                 <input type="password" placeholder="Password" v-model="Password">
             </div>
             <div @click="LogIn()" class="button">Login</div>
-        </div>
-        <div v-if="loginError" class="wrapper">
-            Email or password is wrong
+            <div v-if="loginError">
+                Email or password is wrong
+            </div>
         </div>
 
         <div class="wrapper"> <!-- emit is voor parent folder functie (setActivePage) te callen-->

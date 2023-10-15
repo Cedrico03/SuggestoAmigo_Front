@@ -27,7 +27,7 @@
 
             <div @click="SignUp()" class="button">Sign Up</div>
 
-            <div v-if="Resp == 'user added'"> ✔️Successfully added, check your spam folder and <span @click="$emit('changePageEvent', 'verification')"><u><b>verify</b></u></span> !✔️</div>
+            <div v-if="Resp == 'user added'"> ✔️Successfully added, check your spam folder and <span @click="$emit('changePageEvent', 'verification')"><u style="cursor: pointer;"><b>verify</b></u></span> !✔️</div>
             
             <div> <!-- error div: -->
                 <p class="error" v-if="Resp == 'invalid email format'">Invalid e-mail format</p>
@@ -86,10 +86,11 @@ export default {
             .then(response => response.json())
             .then((data) => {
                 console.log(data);
-                if(data.message == 200) this.Resp = data.message 
-                else {
-                    this.Resp = data.message 
-                }
+                // if(data.message == 200) this.Resp = data.message 
+                // else {
+                //     this.Resp = data.message 
+                // }
+                this.Resp = data.value.message
             }) 
             .catch((error) => console.error("Error:", error))
         }
@@ -98,8 +99,8 @@ export default {
 }
 </script>
 <style>
-#error{
-    text-decoration-color: red;
+.error{
+    color: darkred;
     display: block;
 }
 </style>

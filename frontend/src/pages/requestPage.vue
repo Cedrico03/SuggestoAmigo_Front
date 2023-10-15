@@ -1,13 +1,14 @@
 <template>
     <div>        
         <div class="wrapper">
-            <h1>Friend Resquests Page</h1>
+
+            <h1>Add friends</h1>
 
             <!-- <div v-if="requests.length() == 1">
                 No requests ... (go and find some)
             </div> -->
 
-            <table border="2" style="margin: 0 auto;">
+            <table style="margin: 0 auto;">
                 <tr>
                     <th>User</th>
                     <th>Accept: Y/N</th>
@@ -39,7 +40,6 @@ export default {
         }
     },
     components: {
-        
     },
     mounted() {
         this.getAllRequests()

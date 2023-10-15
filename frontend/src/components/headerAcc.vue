@@ -6,9 +6,9 @@
             <img id= "logoImg" src="../assets/AmigoLogo.png" alt="Logo" @click="$emit('changePageEvent', 'signup')"> 
 
             <div id="headerButtons">
-                <p id= "headerButton" @click="$emit('changePageEvent', 'signup')">Sign Up</p>
-                <p id= "headerButton" @click="$emit('changePageEvent', 'login')">Log In</p>
-                <p id= "headerButton" @click="$emit('changePageEvent', 'verification')">Verify</p>
+                <p id= "headerButton" @click="$emit('changePageEvent', 'friends')">Posts</p>
+                <p id= "headerButton" @click="$emit('changePageEvent', 'friends')">Friends</p>
+                <p id= "headerButton" @click="$emit('changePageEvent', 'signup'), reloadPage()" style="color:red">Log out</p>
             </div>        
         </div>
     </div>
@@ -17,7 +17,13 @@
 <script>
 
 export default {
-    name: "HeaderNoAcc",
+    name: "HeaderAcc",
+    
+    methods: {
+        reloadPage() {
+        window.location.reload();
+        }
+    }
 }
 </script>
 
