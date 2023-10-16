@@ -14,15 +14,16 @@
                 </div>
             </div>
 
-
-            <table border="2" style="margin: 0 auto;">
-            <tr>
-                <th>All friends</th>
-            </tr>
-            <tr v-for="friend in friends" :key="friend.id">
-                <td>{{ friend.fullName}}</td>
-            </tr>        
-        </table>
+            <div id="firendTable">
+                <table border="2" style="margin: 0 auto;">
+                    <tr>
+                        <th>All Friends</th>
+                    </tr>
+                    <tr v-for="friend in friends" :key="friend.id">
+                        <td>{{ friend.fullName}}</td>
+                    </tr>        
+                </table>
+            </div>
         </div>
 
 
@@ -77,9 +78,13 @@ export default {
 </script>
 
 <style>
+#firendTable{
+    margin-bottom: 20px;
+}
+
 #friendPageButtons{
     display: flex;
-    margin:-18px 0 10px 0;
+    margin: -18px 0 20px 0;
 }
 .friendButton{
     font-size:  14px;

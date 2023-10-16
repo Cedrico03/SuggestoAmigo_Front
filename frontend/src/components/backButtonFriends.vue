@@ -1,8 +1,6 @@
 <template>
     <div>
-        <div id="backFriendsPageButtonDiv">
             <div id="backFriendsPageButton" @click="$emit('changePageEvent', 'friends')">⬅</div>
-        </div>
     </div>
 </template>
 

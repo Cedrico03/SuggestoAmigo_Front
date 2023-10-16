@@ -47,7 +47,7 @@ export default {
     font-size:  14px;
     cursor: pointer;
     
-    width: 50px;
+    width: 52px;
     margin: auto;/*align in header bar*/ 
     margin-left: 10px;/*space between the buttons */
     padding: 10px;/* align text in bunnen vertically */

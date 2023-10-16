@@ -2,14 +2,18 @@
     <div>        
         <div class="wrapper">
             
-            <h1><backButtonFriends/>Add friends</h1>
+            <h1>Add friends</h1>
+
+            <div id="friendPageButtons">
+                <div style="width: 100px;" class="friendButton" @click="$emit('changePageEvent', 'friends')">Back to Friends</div>
+            </div>
             
             <div class="input-group">
                 <input  type="text" v-model="addFriendEmail" placeholder="Friend's email">
             </div>
 
             
-            <div @click="addFriendByEmail()" class="button">Send request</div>
+            <div style="width: 100px;" @click="addFriendByEmail()" class="friendButton">Send request</div>
             
             <div v-if="successMessage != ''">✔️ Request sent ✔️</div>
         </div>
@@ -18,7 +22,6 @@
 </template>
 
 <script>
-import backButtonFriends from '@/components/backButtonFriends.vue';
 
 export default {
     name: "AddFriendPage",
@@ -29,7 +32,6 @@ export default {
         }
     },
     components: {
-        backButtonFriends
     },
     mounted() {
 

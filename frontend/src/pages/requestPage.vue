@@ -2,31 +2,34 @@
     <div>        
         <div class="wrapper">
 
-            <h1>Add friends</h1>
+            <h1>Friend Requests</h1>
 
             <!-- <div v-if="requests.length() == 1">
                 No requests ... (go and find some)
             </div> -->
 
-            <table style="margin: 0 auto;">
-                <tr>
-                    <th>User</th>
-                    <th>Accept: Y/N</th>
-                </tr>
-                        
-                <tr v-for="request in requests" :key="request.id">               
-                    <td>{{ request.fullName }}</td>
-                    <td> <span class="green" @click="answerRequest('yes', request.userID)"><b>YES</b></span> | <span class="red" @click="answerRequest('no', request.userID)"><b>NO</b></span> </td>
-                </tr>
-            </table>
+            <div id="friendPageButtons">
+                <div style="width: 100px;" class="friendButton" @click="$emit('changePageEvent', 'friends')">Back to Friends</div>
+            </div>
 
-            
+
+            <div id="requestTable">
+                <table border="2">
+                    <tr>
+                        <th style="width: 200px;">User</th>
+                        <th>Accept</th>
+                    </tr>
+                            
+                    <tr v-for="request in requests" :key="request.id">               
+                        <td>{{ request.fullName }}</td>
+                        <td style="text-align: center; width: 130px;"> 
+                            <span class="requestAcceptButton" @click="answerRequest('yes', request.userID)">YES</span>
+                            <span class="requestAcceptButton" @click="answerRequest('no', request.userID)">NO</span> 
+                        </td>
+                    </tr>
+                </table>
+            </div>            
         </div>
-
-        <button @click="$emit('changePageEvent', 'addFriend')">doeding MOET WEG ROEPERT</button>
-
-
-
     </div>
 </template>
 
@@ -99,10 +102,22 @@ export default {
 </script>
 
 <style>
-    .green {
-        color: greenyellow
-    }
-    .red {
-        color: red
-    }
+#requestTable{
+    margin-bottom: 20px;
+}
+.requestAcceptButton{
+    cursor: pointer;
+    background-color: #DBE2EF;
+    font-size: 14px;
+    border-radius: 2px;
+    padding:3px;
+
+    display: inline-block;
+    width: 30px;
+    
+    margin: 0 10px 0 10px;
+}
+.requestAcceptButton:hover{
+background-color:#c1c9d9 ;
+}
 </style>

@@ -3,12 +3,12 @@
         <!-- <h1><u>Suggesto Amigo</u></h1> -->
         <div id="noAcc">
             
-            <img id= "logoImg" src="../assets/AmigoLogo.png" alt="Logo" @click="$emit('changePageEvent', 'signup')"> 
+            <img id= "logoImg" src="../assets/AmigoLogo.png" alt="Logo" @click="$emit('changePageEvent', 'friends')"> 
 
             <div id="headerButtons">
                 <p id= "headerButton" @click="$emit('changePageEvent', 'friends')">Posts</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'friends')">Friends</p>
-                <p id= "headerButton" @click="$emit('changePageEvent', 'signup'), reloadPage()" style="color:red">Log out</p>
+                <p id= "headerButton" @click="$emit('changePageEvent', 'signup'), reloadPage()" style="color:red">Log Out</p>
             </div>        
         </div>
     </div>
@@ -53,7 +53,7 @@ export default {
     font-size:  14px;
     cursor: pointer;
     
-    width: 50px;
+    width: 52px;
     margin: auto;/*align in header bar*/ 
     margin-left: 10px;/*space between the buttons */
     padding: 10px;/* align text in bunnen vertically */

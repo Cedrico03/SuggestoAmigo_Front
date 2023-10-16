@@ -3,23 +3,24 @@
     
     <HeaderNoAcc v-if="username == ''" @changePageEvent="setActivePage"/>      
     
-    <HeaderAcc v-if="username != ''" @changePageEvent="setActivePage"/>
+    <HeaderAcc v-if=" username != ''" @changePageEvent="setActivePage"/>
     
     
-    
+
     <LoginPage v-if="activePage == 'login'" @changePageEvent="setActivePage"/> 
-   
+    
     <SignUpPage v-if="activePage == 'signup'" @changePageEvent="setActivePage"/>
     
     <VerificationPage v-if="activePage == 'verification'" @changePageEvent="setActivePage" />
-
-
-
+    
+    
+    
     <FriendsPage v-if="activePage == 'friends'" @changePageEvent="setActivePage" />
-
+    
     <AddFriendPage v-if="activePage == 'addFriend'" @changePageEvent="setActivePage" />
     
     <RequestPage v-if="activePage == 'request'" @changePageEvent="setActivePage" />
+      
   </div>
 </template>
 
@@ -51,7 +52,6 @@ export default {
 
       username: "",
       password: "",
-
     }
   },
   mounted() {
@@ -61,7 +61,6 @@ export default {
     setActivePage(page) {
       this.activePage = page;
     },
-
   }
 }
 </script>
@@ -74,17 +73,45 @@ export default {
   text-align: center;
   color: #112D4E;
 }
+
+#mainpage{
+  position:relative;
+}
+
+#mainContent{
+  
+  z-index: 100;
+}
+
+#backgroundImg{
+  position:absolute;
+  z-index: -100;
+  /* top: 156px; */
+  top: 0;
+  left: 25%;
+  width: 50%;
+  opacity: 0.3;
+}
+
 body {
   background-color: #DBE2EF;
   margin: 0;
+  background-image: url("./assets/AmigoBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 table{
   border-collapse: collapse;
   border: black 1px solid;
-  width: 200px;
+  width: 350px;
+}
+td, th{
+  height: 25px;
 }
 td{
   text-align: left;
+  padding-left: 5px;
 }
 h2{
   margin-bottom: 10px;
@@ -114,7 +141,6 @@ h2{
   margin-bottom: 10px;
 }
 
-
 .button {
   background-color: #DBE2EF;
   width: 120px;
@@ -128,13 +154,5 @@ h2{
 .button:hover {
   background-color:#c1c9d9 ; 
 } 
-
-.button:active {
-    transform: translateY(8px);
-}
-
-#headerbutton:active {
-  transform:translateY(8px);
-}
 </style>
 

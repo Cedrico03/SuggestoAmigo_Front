@@ -12,7 +12,7 @@
             <div class="input-group">
                 <input type="password" placeholder="Password" v-model="Password">
             </div>
-            <div @click="LogIn()" class="button">Login</div>
+            <div @click="LogIn()" class="button">Log In</div>
             <div v-if="loginError">
                 Email or password is wrong
             </div>
@@ -46,28 +46,28 @@ export default {
     },
     methods: {
         LogIn() {
-            this.$parent.username = this.Email;
-            this.$parent.password = this.Password;
             let credentials = this.Email + ":" + this.Password;
             
             fetch("https://localhost:5148/Account",
             {
                 headers: {
-                'Accept': 'text/plain',
-                'Content-Type': 'application/json',
-                'Authorization' : "Basic " + btoa(credentials)
+                    'Accept': 'text/plain',
+                    'Content-Type': 'application/json',
+                    'Authorization' : "Basic " + btoa(credentials)
                 },
                 method: "GET"
             })
             .then((response) => response.json())
             .then((data) => { // successvol
                 console.log("Success:", data)
-                this.loginError = false;
-                this.errorCode = null
+                this.errorCode = null;
                 this.$emit('changePageEvent', 'friends') // verander v page, naar friends page
+                           
+                this.$parent.username = this.Email;
+                this.$parent.password = this.Password;
             })
             .catch((error) => { // niet successvol
-                console.error("Error:", error)
+                //console.error("Error:", error)
                 this.loginError = true;
                 if (error.response && error.response.status) {
                     this.errorCode = error.response.status;

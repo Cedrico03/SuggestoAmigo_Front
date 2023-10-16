@@ -21,7 +21,7 @@
 
             <div class="input-group">
                 <input type="checkbox" id="over18" v-model="Over18">
-                <label for="myCheck">I am over 18</label> 
+                <label for="myCheck" style="margin-left: 5px;">I am over 18 years old</label> 
             </div>
 
 
@@ -32,6 +32,9 @@
             <div> <!-- error div: -->
                 <p class="error" v-if="Resp == 'invalid email format'">Invalid e-mail format</p>
                 <p class="error" v-if="Resp =='email already in use'">E-mail already in use</p>
+                <p class="error" v-if="Resp =='user with this firstname and lastname already exist'">Firstname and Lastname already taken</p>
+                <p class="error" v-if="Resp == 'firstname too long'">Firstname too long</p>
+                <p class="error" v-if="Resp == 'lastname too long'">Lastname too long</p>
             </div>
 
         </div>
@@ -90,7 +93,7 @@ export default {
                 // else {
                 //     this.Resp = data.message 
                 // }
-                this.Resp = data.value.message
+                this.Resp = data.message
             }) 
             .catch((error) => console.error("Error:", error))
         }
