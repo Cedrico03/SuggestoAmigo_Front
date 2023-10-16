@@ -23,8 +23,8 @@
                     <tr v-for="request in requests" :key="request.id">               
                         <td>{{ request.fullName }}</td>
                         <td style="text-align: center; width: 130px;"> 
-                            <span class="requestAcceptButton" @click="answerRequest('yes', request.userID)">YES</span>
-                            <span class="requestAcceptButton" @click="answerRequest('no', request.userID)">NO</span> 
+                            <span style="background-color: #92E5A6;" class="requestAcceptButton" @click="answerRequest('yes', request.userID)">YES</span>
+                            <span style="background-color: #F07F76;" class="requestAcceptButton" @click="answerRequest('no', request.userID)">NO</span> 
                         </td>
                     </tr>
                 </table>
