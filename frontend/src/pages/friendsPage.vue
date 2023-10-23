@@ -2,8 +2,6 @@
     <div>        
         <div class="wrapper">
             
-            
-            
             <h1>Friends</h1>
             
             <div id="friendPageButtons">

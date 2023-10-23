@@ -8,7 +8,7 @@
             <div id="headerButtons">
                 <p id= "headerButton" @click="$emit('changePageEvent', 'friends')">Posts</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'friends')">Friends</p>
-                <p id= "headerButton" @click="$emit('changePageEvent', 'signup'), reloadPage()" style="color:red">Log Out</p>
+                <p id= "headerButton" @click="$emit('changePageEvent', 'myProfile')">Profile</p>
             </div>        
         </div>
     </div>
