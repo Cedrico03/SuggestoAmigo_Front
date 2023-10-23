@@ -22,6 +22,8 @@
     <RequestPage v-if="activePage == 'request'" @changePageEvent="setActivePage" />
 
     <MyProfile v-if="activePage == 'myProfile'" @changePageEvent="setActivePage" />
+
+    <FeedPage v-if="activePage == 'feed'" @changePageEvent="setActivePage"/>
       
   </div>
 </template>
@@ -36,6 +38,7 @@ import RequestPage from './pages/requestPage.vue'
 import HeaderNoAcc from './components/headerNoAcc.vue'
 import HeaderAcc from './components/headerAcc.vue'
 import MyProfile from './pages/myProfile.vue'
+import FeedPage from './pages/feedPage.vue'
 
 export default {
   name: 'App',
@@ -48,7 +51,8 @@ export default {
     FriendsPage,
     AddFriendPage,
     RequestPage,
-    MyProfile
+    MyProfile,
+    FeedPage
   },
   data() {
     return {

@@ -6,7 +6,7 @@
             <img id= "logoImg" src="../assets/AmigoLogo.png" alt="Logo" @click="$emit('changePageEvent', 'friends')"> 
 
             <div id="headerButtons">
-                <p id= "headerButton" @click="$emit('changePageEvent', 'friends')">Posts</p>
+                <p id= "headerButton" @click="$emit('changePageEvent', 'feed')">Feed</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'friends')">Friends</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'myProfile')">Profile</p>
             </div>        

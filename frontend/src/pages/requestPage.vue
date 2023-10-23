@@ -12,7 +12,6 @@
                 <div style="width: 100px;" class="friendButton" @click="$emit('changePageEvent', 'friends')">Back to Friends</div>
             </div>
 
-
             <div id="requestTable">
                 <table border="2">
                     <tr>
