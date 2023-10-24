@@ -18,7 +18,7 @@
                         <th>All Friends</th>
                     </tr>
                     <tr v-for="friend in friends" :key="friend.id">
-                        <td>{{ friend.fullName}}</td>
+                        <td><span class="friendName">{{ friend.fullName}}</span></td>
                     </tr>        
                 </table>
             </div>

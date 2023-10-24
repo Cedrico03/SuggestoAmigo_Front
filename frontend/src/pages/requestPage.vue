@@ -20,8 +20,8 @@
                     </tr>
                             
                     <tr v-for="request in requests" :key="request.id">               
-                        <td>{{ request.fullName }}</td>
-                        <td style="text-align: center; width: 130px;"> 
+                        <td v-if="request.fullName != ''" >{{ request.fullName }}</td>
+                        <td v-if="request.fullName != ''" style="text-align: center; width: 130px;"> 
                             <span style="background-color: #92E5A6;" class="requestAcceptButton" @click="answerRequest('yes', request.userID)">YES</span>
                             <span style="background-color: #F07F76;" class="requestAcceptButton" @click="answerRequest('no', request.userID)">NO</span> 
                         </td>
@@ -94,6 +94,7 @@ export default {
                     console.error("Error:", error)
                 })
             }
+            setTimeout(() => {this.getAllRequests();}, 500)
         }
     }
 
@@ -104,7 +105,7 @@ export default {
 #requestTable{
     margin-bottom: 20px;
 }
-.requestAcceptButton{
+.requestAcceptButton .likeButton{
     cursor: pointer;
     background-color: #DBE2EF;
     font-size: 14px;
@@ -116,7 +117,7 @@ export default {
     
     margin: 0 10px 0 10px;
 }
-.requestAcceptButton:hover{
+.requestAcceptButton:hover .likeButton:hover{
 background-color:#c1c9d9 ;
 }
 </style>
