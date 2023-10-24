@@ -105,7 +105,7 @@ export default {
 #requestTable{
     margin-bottom: 20px;
 }
-.requestAcceptButton .likeButton{
+.requestAcceptButton{
     cursor: pointer;
     background-color: #DBE2EF;
     font-size: 14px;
@@ -117,7 +117,7 @@ export default {
     
     margin: 0 10px 0 10px;
 }
-.requestAcceptButton:hover .likeButton:hover{
+.requestAcceptButton:hover{
 background-color:#c1c9d9 ;
 }
 </style>
