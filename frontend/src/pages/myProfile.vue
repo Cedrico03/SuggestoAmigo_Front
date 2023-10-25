@@ -215,7 +215,7 @@ export default {
 .cardContent{
     margin: -6px 0 0 0;
     width: 320px;
-    height: auto;
+    height: 100px;
     background-color: inherit;
     border: solid black 1px;
     resize: none;
