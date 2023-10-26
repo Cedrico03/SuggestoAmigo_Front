@@ -24,6 +24,12 @@
                 <label for="myCheck" style="margin-left: 5px;">I am over 18 years old</label> 
             </div>
 
+            <div class="input-group">
+                By making an account,
+                <br>
+                you accept our <u @click="$emit('changePageEvent', 'tos')">Terms of service</u>.                
+            </div>
+
 
             <div @click="SignUp()" class="button">Sign Up</div>
 
