@@ -2,9 +2,9 @@
     <div>        
         <div class="wrapper">
             
-            <h1>Suggesto Amigo Terms of service</h1>
+            <h1>Suggesto Amigo <br> Terms of Service</h1>
             
-            <div>
+            <div style="margin: 0 10px; text-align: left;">
                 Suggesto Amigo - Terms of Service
                 <br>
                 Effective Date: October 26, 2023

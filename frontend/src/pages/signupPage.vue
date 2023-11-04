@@ -20,6 +20,10 @@
             </div>
 
             <div class="input-group">
+                <input type="password" placeholder="Re-enter Password" v-model="RePassword">
+            </div>
+
+            <div class="input-group">
                 <input type="checkbox" id="over18" v-model="Over18">
                 <label for="myCheck" style="margin-left: 5px;">I am over 18 years old</label> 
             </div>
@@ -27,22 +31,23 @@
             <div class="input-group">
                 By making an account,
                 <br>
-                you accept our <u @click="$emit('changePageEvent', 'tos')">Terms of service</u>.                
+                you accept our <u @click="$emit('changePageEvent', 'tos')" style="cursor: pointer;">Terms of service</u>.                
             </div>
 
 
-            <div @click="SignUp()" class="button">Sign Up</div>
+            <div @click="SignUpChecks()" class="button">Sign Up</div>
 
             <div v-if="Resp == 'user added'"> ✔️Successfully added, check your spam folder and <span @click="$emit('changePageEvent', 'verification')"><u style="cursor: pointer;"><b>verify</b></u></span> !✔️</div>
             
-            <div> <!-- error div: -->
-                <p class="error" v-if="Resp == 'invalid email format'">Invalid e-mail format</p>
-                <p class="error" v-if="Resp =='email already in use'">E-mail already in use</p>
-                <p class="error" v-if="Resp =='user with this firstname and lastname already exist'">Firstname and Lastname already taken</p>
-                <p class="error" v-if="Resp == 'firstname too long'">Firstname too long</p>
-                <p class="error" v-if="Resp == 'lastname too long'">Lastname too long</p>
+            <div class="error"> <!-- error div: -->
+                <p v-if="Resp == 'invalid email format'">Invalid e-mail format</p>
+                <p v-if="Resp == 'email already in use'">E-mail already in use</p>
+                <p v-if="Resp == 'user with this firstname and lastname already exist'">Firstname and Lastname already taken</p>
+                <p v-if="Resp == 'firstname too long'">Firstname too long</p>
+                <p v-if="Resp == 'lastname too long'">Lastname too long</p>
+                <p v-if="Resp == 'pass'">Passwords don't match</p>
+                <p v-if="Resp == '18check'">You must be over 18</p>
             </div>
-
         </div>
 
         <div class="wrapper" > <!-- emit is voor parent folder functie (setActivePage) te callen-->
@@ -62,6 +67,7 @@ export default {
             Lastname:"",
             Email: "",
             Password: "",
+            RePassword:"",
             Resp: "",
             Over18: false,
         }
@@ -73,6 +79,20 @@ export default {
 
     },
     methods: {
+        SignUpChecks(){
+            let check = true
+            if (this.Password != this.RePassword){
+                this.Resp="pass"     
+                check = false           
+            }
+            if (!this.Over18){
+                this.Resp="18check" 
+                console.log(this.Resp)
+                check = false               
+            }
+            if (check) this.SignUp()
+        },
+
         SignUp() {
             let data = {
                 "firstname": this.Firstname,
@@ -81,7 +101,7 @@ export default {
                 "password": this.Password,
                 "isverified":false
             }
-            if (!this.Over18) return
+            
             fetch("https://localhost:5148/Account", 
                 {                    
                     method: "POST",
@@ -95,16 +115,15 @@ export default {
             .then(response => response.json())
             .then((data) => {
                 console.log(data);
-                // if(data.message == 200) this.Resp = data.message 
-                // else {
-                //     this.Resp = data.message 
-                // }
+                if(data.message == 200) this.Resp = data.message 
+                else {
+                    this.Resp = data.message 
+                }
                 this.Resp = data.message
             }) 
             .catch((error) => console.error("Error:", error))
         }
     }
-
 }
 </script>
 <style>
