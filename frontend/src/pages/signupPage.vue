@@ -4,36 +4,59 @@
             <h2>Create an account</h2>
 
             <div class="input-group">
-                <input type="text" placeholder="Firstname" v-model="Firstname">
+                <input type="text" placeholder="Firstname" v-model="Firstname" @focus="ShowReq = false, ShowMatch = false">
             </div>
 
             <div class="input-group">
-                <input type="text" placeholder="Lastname" v-model="Lastname">
+                <input type="text" placeholder="Lastname" v-model="Lastname" @focus="ShowReq = false, ShowMatch = false">
             </div>
 
             <div class="input-group">
-                <input type="text" placeholder="Email" v-model="Email">
+                <input type="text" placeholder="Email" v-model="Email" @focus="ShowReq = false, ShowMatch = false">
             </div>
 
             <div class="input-group">
-                <input type="password" placeholder="Password" v-model="Password">
+                <input type="password" placeholder="Password" v-model="Password"  @focus="ShowReq = true, ShowMatch = false" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
             </div>
 
+            
             <div class="input-group">
-                <input type="password" placeholder="Re-enter Password" v-model="RePassword">
+                <input type="password" placeholder="Re-enter Password" v-model="RePassword" @focus="ShowReq = false, ShowMatch = true">
             </div>
-
+            
+            <div id="message" v-if="ShowReq == true">
+                <h3>Password must contain the following:</h3>
+                
+                <div style="text-align: left;">
+                    <span class="invalid" v-if="!Password.match(/[a-z]/g)">A <b>lowercase</b> letter</span>
+                    <span class="invalid" v-if="!Password.match(/[A-Z]/g)">A <b>capital (uppercase)</b> letter</span>
+                    <span class="invalid" v-if="!Password.match(/[0-9]/g)">A <b>number</b></span>
+                    <span class="invalid" v-if="Password.length<=7">Minimum <b>8 characters</b></span> 
+                    
+                    
+                    <span class="valid" v-if="Password.match(/[a-z]/g)">A <b>lowercase</b> letter</span> 
+                    <span class="valid" v-if="Password.match(/[A-Z]/g)">A <b>capital (uppercase)</b> letter</span> 
+                    <span class="valid" v-if="Password.match(/[0-9]/g)">A <b>number</b></span> 
+                    <span class="valid" v-if="Password.length>7">Minimum <b>8 characters</b></span>
+                </div>
+            </div>
+            
+            
             <div class="input-group">
-                <input type="checkbox" id="over18" v-model="Over18">
+                <input type="checkbox" id="over18" v-model="Over18" @focus="ShowReq = false, ShowMatch = false">
                 <label for="myCheck" style="margin-left: 5px;">I am over 18 years old</label> 
             </div>
 
+            <div id="message" v-if="ShowMatch == true" >
+                <span class="invalid" v-if="Password != RePassword">Passwords must <b>match</b></span> 
+                <span class="valid" v-if="Password == RePassword">Passwords must <b>match</b></span>
+            </div>
+            
             <div class="input-group">
                 By making an account,
                 <br>
                 you accept our <u @click="$emit('changePageEvent', 'tos')" style="cursor: pointer;">Terms of service</u>.                
             </div>
-
 
             <div @click="SignUpChecks()" class="button">Sign Up</div>
 
@@ -46,6 +69,7 @@
                 <p v-if="Resp == 'firstname too long'">Firstname too long</p>
                 <p v-if="Resp == 'lastname too long'">Lastname too long</p>
                 <p v-if="Resp == 'pass'">Passwords don't match</p>
+                <p v-if="!PassReq">Password too weak</p>
                 <p v-if="Resp == '18check'">You must be over 18</p>
             </div>
         </div>
@@ -70,13 +94,15 @@ export default {
             RePassword:"",
             Resp: "",
             Over18: false,
+            ShowReq: false,   
+            ShowMatch: false,
+            PassReq:true,         
         }
     },
     components: {
 
     },
     mounted() {
-
     },
     methods: {
         SignUpChecks(){
@@ -85,11 +111,25 @@ export default {
                 this.Resp="pass"     
                 check = false           
             }
+            else{
+                this.Resp="" 
+            }
             if (!this.Over18){
                 this.Resp="18check" 
                 console.log(this.Resp)
                 check = false               
             }
+            else{
+                this.Resp="" 
+            }
+            if(this.Password.match(/[a-z]/g) && this.Password.match(/[A-Z]/g) && this.Password.match(/[0-9]/g) && this.Password.length>7){
+                this.PassReq = true
+            }
+            else{
+                this.PassReq = false
+                check=false
+            }
+
             if (check) this.SignUp()
         },
 
@@ -130,5 +170,33 @@ export default {
 .error{
     color: darkred;
     display: block;
+}
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: darkgreen;
+  display: block;
+}
+
+.valid:before {
+  position: relative;  
+  margin-right: 10px;
+  /* left: -35px; */
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: darkred;
+  display: block;
+}
+
+.invalid:before {
+  position: relative;
+  margin-right: 10px;
+  /* left: -35px; */
+  content: "✖";
+}
+#message{
+    margin-bottom: 10px;
 }
 </style>
