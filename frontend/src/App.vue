@@ -26,6 +26,8 @@
     <FeedPage v-if="activePage == 'feed'" @changePageEvent="setActivePage"/>
 
     <TosPage v-if="activePage == 'tos'" @changePageEvent="setActivePage"/> 
+
+    <ReportPage v-if="activePage == 'report'" @changePageEvent="setActivePage"/>
       
   </div>
 </template>
@@ -42,6 +44,7 @@ import HeaderAcc from './components/headerAcc.vue'
 import MyProfile from './pages/myProfile.vue'
 import FeedPage from './pages/feedPage.vue'
 import TosPage from './pages/tosPage.vue'
+import ReportPage from './pages/reportPage.vue'
 
 export default {
   name: 'App',
@@ -56,7 +59,8 @@ export default {
     RequestPage,
     MyProfile,
     FeedPage,
-    TosPage
+    TosPage,
+    ReportPage
   },
   data() {
     return {
