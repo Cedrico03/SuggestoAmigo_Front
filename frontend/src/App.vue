@@ -1,33 +1,40 @@
 <template>
   <div id="app">
     
-    <HeaderNoAcc v-if="username == ''" @changePageEvent="setActivePage"/>      
     
-    <HeaderAcc v-if=" username != ''" @changePageEvent="setActivePage"/>
-    
-    
+    <div v-if=" username == ''">
+      <HeaderNoAcc v-if="windowWidth > 550"  @changePageEvent="setActivePage"/>      
+      <HeaderNoAccDots v-if="windowWidth <= 550" @changePageEvent="setActivePage"/>
+    </div>
 
-    <LoginPage v-if="activePage == 'login'" @changePageEvent="setActivePage"/> 
+    <div v-if=" username != ''">
+      <HeaderAcc v-if="windowWidth > 550" @changePageEvent="setActivePage"/>      
+      <headerAccDots v-if="windowWidth <= 550" @changePageEvent="setActivePage"/>
+    </div>
     
-    <SignUpPage v-if="activePage == 'signup'" @changePageEvent="setActivePage"/>
-    
-    <VerificationPage v-if="activePage == 'verification'" @changePageEvent="setActivePage" />
-    
-    
-    
-    <FriendsPage v-if="activePage == 'friends'" @changePageEvent="setActivePage" />
-    
-    <AddFriendPage v-if="activePage == 'addFriend'" @changePageEvent="setActivePage" />
-    
-    <RequestPage v-if="activePage == 'request'" @changePageEvent="setActivePage" />
-
-    <MyProfile v-if="activePage == 'myProfile'" @changePageEvent="setActivePage" />
-
-    <FeedPage v-if="activePage == 'feed'" @changePageEvent="setActivePage"/>
-
-    <TosPage v-if="activePage == 'tos'" @changePageEvent="setActivePage"/> 
-
-    <ReportPage v-if="activePage == 'report'" @changePageEvent="setActivePage"/>
+    <div style="margin:0 10px;">
+      <LoginPage v-if="activePage == 'login'" @changePageEvent="setActivePage"/> 
+      
+      <SignUpPage v-if="activePage == 'signup'" @changePageEvent="setActivePage"/>
+      
+      <VerificationPage v-if="activePage == 'verification'" @changePageEvent="setActivePage" />
+      
+      
+      
+      <FriendsPage v-if="activePage == 'friends'" @changePageEvent="setActivePage" />
+      
+      <AddFriendPage v-if="activePage == 'addFriend'" @changePageEvent="setActivePage" />
+      
+      <RequestPage v-if="activePage == 'request'" @changePageEvent="setActivePage" />
+  
+      <MyProfile v-if="activePage == 'myProfile'" @changePageEvent="setActivePage" />
+  
+      <FeedPage v-if="activePage == 'feed'" @changePageEvent="setActivePage"/>
+  
+      <TosPage v-if="activePage == 'tos'" @changePageEvent="setActivePage"/> 
+  
+      <ReportPage v-if="activePage == 'report'" @changePageEvent="setActivePage"/>
+    </div>
       
   </div>
 </template>
@@ -40,7 +47,9 @@ import FriendsPage from './pages/friendsPage.vue'
 import AddFriendPage from './pages/addFriendPage.vue'
 import RequestPage from './pages/requestPage.vue'
 import HeaderNoAcc from './components/headerNoAcc.vue'
+import HeaderNoAccDots from './components/headerNoAccDots.vue'
 import HeaderAcc from './components/headerAcc.vue'
+import headerAccDots from './components/headerAccDots.vue'
 import MyProfile from './pages/myProfile.vue'
 import FeedPage from './pages/feedPage.vue'
 import TosPage from './pages/tosPage.vue'
@@ -53,7 +62,9 @@ export default {
     SignUpPage,
     VerificationPage,
     HeaderNoAcc,
+    HeaderNoAccDots,
     HeaderAcc,
+    headerAccDots,
     FriendsPage,
     AddFriendPage,
     RequestPage,
@@ -68,15 +79,26 @@ export default {
 
       username: "",
       password: "",
+      windowWidth: window.innerWidth,
     }
   },
   mounted() {
-
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    })
   },
+
+  // beforeDestroy() { 
+  //   window.removeEventListener('resize', this.onResize); 
+  // },
+
   methods: {
     setActivePage(page) {
       this.activePage = page;
     },
+    onResize() {
+      this.windowWidth = window.innerWidth
+    }
   }
 }
 </script>
@@ -140,7 +162,7 @@ h2{
   border: 1px solid black;
   border-radius: 10px;
   
-  margin: 0 0 20px 0;
+  margin: 0 10px 20px 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;

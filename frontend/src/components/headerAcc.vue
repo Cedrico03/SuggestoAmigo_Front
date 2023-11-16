@@ -9,7 +9,6 @@
                 <p id= "headerButton" @click="$emit('changePageEvent', 'feed')">Feed</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'friends')">Friends</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'myProfile')">Profile</p>
-                <p id= "headerButton" @click="$emit('changePageEvent', 'myProfile')">Forum</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'report')">Report</p>
             </div>        
         </div>
