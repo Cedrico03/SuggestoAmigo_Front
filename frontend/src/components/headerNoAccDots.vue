@@ -17,6 +17,7 @@
                             <li style="background-color: #ffffff;" id="headerButton" @click="$emit('changePageEvent', 'signup')">Sign Up</li>
                             <li style="background-color: #ffffff;" id="headerButton" @click="$emit('changePageEvent', 'login')">Log In</li>
                             <li style="background-color: #ffffff;" id="headerButton" @click="$emit('changePageEvent', 'verification')">Verify</li>
+                            <li style="background-color: #ffffff;" id="headerButton" @click="$emit('changePageEvent', 'about')">About</li>
                         </ul>
                         </div>
                     </div>

@@ -9,6 +9,7 @@
                 <p id= "headerButton" @click="$emit('changePageEvent', 'signup')">Sign Up</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'login')">Log In</p>
                 <p id= "headerButton" @click="$emit('changePageEvent', 'verification')">Verify</p>
+                <p id= "headerButton" @click="$emit('changePageEvent', 'about')">About</p>
             </div>        
         </div>
     </div>

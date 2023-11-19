@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     
-    
     <div v-if=" username == ''">
       <HeaderNoAcc v-if="windowWidth > 550"  @changePageEvent="setActivePage"/>      
       <HeaderNoAccDots v-if="windowWidth <= 550" @changePageEvent="setActivePage"/>
@@ -19,8 +18,6 @@
       
       <VerificationPage v-if="activePage == 'verification'" @changePageEvent="setActivePage" />
       
-      
-      
       <FriendsPage v-if="activePage == 'friends'" @changePageEvent="setActivePage" />
       
       <AddFriendPage v-if="activePage == 'addFriend'" @changePageEvent="setActivePage" />
@@ -34,6 +31,9 @@
       <TosPage v-if="activePage == 'tos'" @changePageEvent="setActivePage"/> 
   
       <ReportPage v-if="activePage == 'report'" @changePageEvent="setActivePage"/>
+      
+      <AboutUsPage v-if="activePage == 'about'" @changePageEvent="setActivePage"/>
+
     </div>
       
   </div>
@@ -54,6 +54,7 @@ import MyProfile from './pages/myProfile.vue'
 import FeedPage from './pages/feedPage.vue'
 import TosPage from './pages/tosPage.vue'
 import ReportPage from './pages/reportPage.vue'
+import AboutUsPage from './pages/aboutUsPage.vue'
 
 export default {
   name: 'App',
@@ -71,7 +72,8 @@ export default {
     MyProfile,
     FeedPage,
     TosPage,
-    ReportPage
+    ReportPage,
+    AboutUsPage,
   },
   data() {
     return {

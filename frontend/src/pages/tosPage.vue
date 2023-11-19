@@ -77,7 +77,6 @@ export default {
     components: {
     },
     mounted() {
-        this.getFeed()
     },
     methods: {
 
