@@ -108,6 +108,8 @@ export default {
                 "userID": 0
             }
 
+            if (card.message.length < 1) return;
+
             fetch("https://localhost:5148/Card",
             {                
                 headers: {
