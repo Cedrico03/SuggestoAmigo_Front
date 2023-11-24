@@ -60,7 +60,7 @@ export default {
             queryParams.append('verificationCode', data.code);
 
             // Combine the base URL and query parameters
-            const urlWithQueryParams = `https://localhost:5148/VerificationCode?${queryParams.toString()}`;
+            const urlWithQueryParams = `${process.env.VUE_APP_API_URL}?${queryParams.toString()}`;
             
             fetch(urlWithQueryParams, {
                 method: "PUT",
