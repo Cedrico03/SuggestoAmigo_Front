@@ -48,7 +48,7 @@ export default {
         LogIn() {
             let credentials = this.Email + ":" + this.Password;
             
-            fetch("https://localhost:5148/Account",
+            fetch(`${process.env.VUE_APP_API_URL}/Account`,
             {
                 headers: {
                     'Accept': 'text/plain',

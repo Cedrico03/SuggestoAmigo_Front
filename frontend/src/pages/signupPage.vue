@@ -142,7 +142,7 @@ export default {
                 "isverified":false
             }
             
-            fetch("https://localhost:5148/Account", 
+            fetch(`${process.env.VUE_APP_API_URL}/Account`, 
                 {                    
                     method: "POST",
                     headers: {

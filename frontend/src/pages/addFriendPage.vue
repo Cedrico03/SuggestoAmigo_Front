@@ -40,7 +40,7 @@ export default {
         addFriendByEmail() {
             let credentials = this.$parent.username + ":" + this.$parent.password;
 
-            fetch("https://localhost:5148/FriendRequest?FriendEmail=" + this.addFriendEmail,
+            fetch(`${process.env.VUE_APP_API_URL}/FriendRequest?FriendEmail=` + this.addFriendEmail,
             {
                 headers: {
                 'Accept': 'text/plain',

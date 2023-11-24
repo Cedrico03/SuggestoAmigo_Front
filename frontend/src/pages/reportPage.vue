@@ -46,7 +46,7 @@ export default {
 
             let credentials = this.$parent.username + ":" + this.$parent.password;
             console.log(credentials)
-            fetch("https://localhost:5148/Ban",
+            fetch(`${process.env.VUE_APP_API_URL}/Ban`,
             {
                 headers: {
                 'Accept': 'text/plain',

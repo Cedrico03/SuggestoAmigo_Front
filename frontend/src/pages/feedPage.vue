@@ -46,7 +46,7 @@ export default {
         getFeed() {
             let credentials = this.$parent.username + ":" + this.$parent.password;
 
-            fetch("https://localhost:5148/Feed",
+            fetch(`${process.env.VUE_APP_API_URL}/Feed`,
             {
                 headers: {
                 'Accept': 'text/plain',
