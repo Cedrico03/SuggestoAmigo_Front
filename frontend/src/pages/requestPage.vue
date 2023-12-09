@@ -51,7 +51,7 @@ export default {
 
             let credentials = this.$parent.username + ":" + this.$parent.password;
 
-            fetch("https://localhost:5148/FriendRequest",
+            fetch(`${process.env.VUE_APP_API_URL}/FriendRequest`,
             {
                 headers: {
                 'Accept': 'text/plain',
@@ -76,7 +76,7 @@ export default {
                 // 'https://localhost:5148/FriendRequest?senderID=2'
                 let credentials = this.$parent.username + ":" + this.$parent.password;
 
-                fetch("https://localhost:5148/FriendRequest?senderID=" + id,
+                fetch(`${process.env.VUE_APP_API_URL}/FriendRequest?senderID=` + id,
                 {
                     headers: {
                     'Accept': 'text/plain',

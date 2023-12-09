@@ -46,7 +46,7 @@ export default {
         getAllFriends() {
             let credentials = this.$parent.username + ":" + this.$parent.password;
 
-            fetch("https://localhost:5148/Friends",
+            fetch(`${process.env.VUE_APP_API_URL}/Friends`,
             {
                 headers: {
                 'Accept': 'text/plain',
