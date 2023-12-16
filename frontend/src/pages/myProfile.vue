@@ -66,7 +66,7 @@ export default {
     methods:{
         getUser(){
 
-            fetch("https://localhost:5148/Account",
+            fetch(`${process.env.VUE_APP_API_URL}/Account:`,
             {
                 headers: {
                 'Accept': 'text/plain',
@@ -110,7 +110,7 @@ export default {
 
             if (card.message.length < 1) return;
 
-            fetch("https://localhost:5148/Card",
+            fetch(`${process.env.VUE_APP_API_URL}/Card`,
             {                
                 headers: {
                 'Accept': 'text/plain',
@@ -132,7 +132,7 @@ export default {
         },
 
         getPastCards(){
-            fetch("https://localhost:5148/Own",
+            fetch(`${process.env.VUE_APP_API_URL}/Own`,
             {                
                 headers: {
                 'Accept': 'text/plain',
@@ -151,7 +151,7 @@ export default {
             })
         },
         deleteCard(cardId){
-            fetch("https://localhost:5148/Card?cardID=" + cardId,
+            fetch(`${process.env.VUE_APP_API_URL}/Card?cardID=` + cardId,
             {                
                 headers: {
                 'Accept': 'text/plain',

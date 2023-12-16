@@ -77,7 +77,7 @@ export default {
             if(feedback.toLowerCase() == "dislike") status = "Dislike";
             
             let credentials = this.$parent.username + ":" + this.$parent.password;
-            fetch("https://localhost:5148/" + status + "?cardID=" + cardId,
+            fetch(`${process.env.VUE_APP_API_URL}` + status + "?cardID=" + cardId,
             {
                 headers: {
                 'Accept': 'text/plain',
